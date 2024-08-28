@@ -27,6 +27,7 @@ export default class Controller {
     }
 
     this.#view.addRow({ name, age, email });
+    this.#view.resetForm();
   }
 
   #init() {
