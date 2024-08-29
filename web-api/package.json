@@ -1,0 +1,16 @@
+{
+  "name": "web-api",
+  "version": "0.0.1",
+  "description": "web api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --inspect --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elonyavist",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": "v20.17.0"
+  }
+}
