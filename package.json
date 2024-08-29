@@ -6,6 +6,13 @@
   "bin": {
     "user-management-app": "./ui/index.js"
   },
+  "bugs": {
+    "url": "https://github.com/elonyavist/fullstack-vanilla-javaScript-fem-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elonyavist/fullstack-vanilla-javaScript-fem-template.git"
+  },
   "scripts": {
     "web": "npx browser-sync './' ui/",
     "cli": "node ui/index.js",
@@ -14,7 +21,7 @@
     "test:dev": "node --inspect --watch --test test/"
   },
   "keywords": [],
-  "author": "erickwendel",
+  "author": "elonyavist",
   "license": "ISC",
   "type": "module",
   "engines": {

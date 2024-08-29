@@ -75,6 +75,7 @@ export default class LayoutBuilder {
   setFormComponent({ onSubmit, onClear }) {
     const form = blessed.form({
       parent: this.#layout,
+      clickable: true,
       keys: true,
       vi: false,
       width: "100%",
