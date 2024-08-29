@@ -13,6 +13,7 @@ export default class Controller {
   static init(deps) {
     const controller = new Controller(deps);
     controller.#init();
+
     return controller;
   }
 
