@@ -46,8 +46,12 @@ describe("Web app test suite", () => {
 
     const addRow = context.mock.method(view, view.addRow.name);
 
-    _controller = Controller.init({
+    _controller = await Controller.init({
       view,
+      service: {
+        getUsers: context.mock.fn(async () => []),
+        createUser: context.mock.fn(async () => ({})),
+      },
     });
 
     const [name, age, email, tableBody, form, btnFormClear] =
@@ -92,8 +96,12 @@ describe("Web app test suite", () => {
     const addRow = context.mock.method(view, view.addRow.name);
     const notify = context.mock.method(view, view.notify.name);
 
-    _controller = Controller.init({
+    _controller = await Controller.init({
       view,
+      service: {
+        getUsers: context.mock.fn(async () => []),
+        createUser: context.mock.fn(async () => ({})),
+      },
     });
     const onSubmit = form.result.addEventListener.mock.calls[0].arguments[1];
     const preventDefaultSpy = context.mock.fn();
