@@ -63,7 +63,7 @@ export default class Controller {
     const initialData = [
       { name: "Elia Narducci", age: 34, email: "elianarducciweb@gmail.com" },
       { name: "Bob Rott", age: 24, email: "bobrott@gmail.com" },
-      { name: "Boby Ass", age: 25, email: "bobyass@gmail.com" },
+      { name: "Luke Mitt", age: 25, email: "lukemitt@gmail.com" },
       ...data,
     ];
 
