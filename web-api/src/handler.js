@@ -19,7 +19,7 @@ const userRoutes = routes({
 
 const allRoutes = {
   ...userRoutes,
-  default(request, response) {
+  defaultRoute(request, response) {
     response.writeHead(404, DEFAULT_HEADERS);
     response.write(JSON.stringify({ message: "URL Not Found" }));
 
@@ -34,12 +34,23 @@ function handler(request, response) {
 
   const key = `${pathname}:${method.toLowerCase()}`;
 
-  const chosen = allRoutes[key] ?? allRoutes.default;
+  const chosen = allRoutes[key] ?? allRoutes.defaultRoute;
 
   // we have to create a promise because some routes could be async, like write/read to the db etc. With this code we can handle both sync and async routes plus errors
-  return Promise.resolve(chosen(request, response)).catch((error) => {
-    console.error(error);
-  });
+  return Promise.resolve(chosen(request, response)).catch(
+    handleError(response)
+  );
+}
+
+function handleError(response) {
+  return (error) => {
+    console.log("Error during request", error);
+
+    response.writeHead(500, DEFAULT_HEADERS);
+    response.write(JSON.stringify({ error: "Internal server error" }));
+
+    return response.end();
+  };
 }
 
 export default handler;

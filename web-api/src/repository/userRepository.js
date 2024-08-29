@@ -1,3 +1,5 @@
+import { readFile, writeFile } from "node:fs/promises";
+
 export default class UserRepository {
   #file;
 
@@ -5,7 +7,18 @@ export default class UserRepository {
     this.#file = file;
   }
 
-  find() {
-    return [];
+  async #currentFileContent() {
+    return JSON.parse(await readFile(this.#file));
+  }
+
+  async find() {
+    return this.#currentFileContent();
+  }
+
+  async create(data) {
+    const currentData = await this.#currentFileContent();
+    currentData.push(data);
+
+    return await writeFile(this.#file, JSON.stringify(currentData));
   }
 }
